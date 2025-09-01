@@ -1,0 +1,12 @@
+import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+
+@Component({
+  selector: 'app-topstrip',
+  imports: [MatButtonModule, MatMenuModule],
+  templateUrl: './topstrip.component.html',
+})
+export class AppTopstripComponent {
+  constructor() {}
+}

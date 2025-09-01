@@ -1,0 +1,63 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">
+      <img src="../../../assets/images/logos/learn.svg" alt="logo" />
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="login-cover"></div>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="text-center m-b-8 m-t-12">
+            <mat-label class="f-w-600 m-b-8 d-block"> Login</mat-label>
+          </h3>
+
+          <mat-label class="f-w-600 m-b-8 d-block">Your Name</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="your name " />
+          </mat-form-field>
+
+          <mat-label class="f-w-600 m-b-8 d-block">Password</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type="password" placeholder="your password" />
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <button
+                mat-button
+                (click)="navigate('/forgot')"
+                class="float-end"
+              >
+                Forgot password ?
+              </button>
+            </div>
+            <div class="col-lg-12">
+              <div class="m-t-12 m-b-12">
+                Dont you have an account ?
+                <button
+                  mat-button
+                  color="primary"
+                  (click)="navigate('/signup')"
+                >
+                  Sign up
+                </button>
+              </div>
+              <button
+                mat-flat-button
+                color="primary"
+                class="m-l-8"
+                (click)="navigate('/user')"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
