@@ -6,19 +6,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 @Component({
   selector: 'bac-login',
   imports: [
     MatFormFieldModule,
     MatCardModule,
     MatSelectModule,
-    MatFormFieldModule,
-    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatCardModule,
     MatInputModule,
   ],
   templateUrl: './login.component.html',

@@ -31,7 +31,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["src/styles.scss", "src/assets/scss/style.scss"],
+            "styles": ["src/styles.scss", "src/assets/scss/theme-colors.scss"],
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/scss"]
