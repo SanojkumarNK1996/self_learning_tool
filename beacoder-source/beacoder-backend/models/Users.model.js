@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/db');
 
+
 const Users = db.pgConn.define('Users', {
   id: {
     type: DataTypes.INTEGER,
@@ -21,7 +22,7 @@ const Users = db.pgConn.define('Users', {
   },
   officeCollege: {
     type: DataTypes.STRING,
-  },
+  },  
   phone: {
     type: DataTypes.STRING,
     unique: true,
@@ -37,11 +38,17 @@ const Users = db.pgConn.define('Users', {
   },
   isActive: {
     type: DataTypes.BOOLEAN,
-    defaultValue: true,
+    defaultValue: false,
   },
   lastLogin: {
     type: DataTypes.DATE,
   },
+  paymentStatus: {
+  type: DataTypes.ENUM('pending', 'paid', 'failed', 'refunded', 'expired'),
+  allowNull: false,
+  defaultValue: 'pending',
+},
 }, { timestamps: true });
+
 
 module.exports = Users;

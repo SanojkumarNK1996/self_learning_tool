@@ -7,10 +7,6 @@ const CourseTopics = db.pgConn.define('CourseTopics', {
     primaryKey: true,
     autoIncrement: true,
   },
-  // courseId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  // },
   title: {
     type: DataTypes.STRING,
     allowNull: false,

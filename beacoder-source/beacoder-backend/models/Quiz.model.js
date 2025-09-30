@@ -7,18 +7,6 @@ const Quiz = db.pgConn.define('Quiz', {
     primaryKey: true,
     autoIncrement: true,
   },
-  // subtopicId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  // },
-  // topicId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  // },
-  // courseId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  // },
   tags: {
     type: DataTypes.STRING,
   },

@@ -7,10 +7,6 @@ const Assignments = db.pgConn.define('Assignments', {
     primaryKey: true,
     autoIncrement: true,
   },
-  // courseId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  // },
   title: {
     type: DataTypes.STRING,
     allowNull: false,

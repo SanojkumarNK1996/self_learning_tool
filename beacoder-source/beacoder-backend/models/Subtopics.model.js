@@ -7,10 +7,6 @@ const Subtopics = db.pgConn.define('Subtopics', {
     primaryKey: true,
     autoIncrement: true,
   },
-  // topicId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  // },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
