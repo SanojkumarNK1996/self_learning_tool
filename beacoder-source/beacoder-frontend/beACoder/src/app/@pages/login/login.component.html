@@ -1,0 +1,60 @@
+<div class="main_wrapper">
+  <div class="left_wrapper">
+    <img src="../../../assets/images/login-banner.svg" alt="banner" />
+    <div class="content_wrapper">
+      <div class="header">Be A Coder</div>
+      <div class="sub_header">
+        <div class="">No Job For you,</div>
+        <div class="">No Pay For you,</div>
+        <div class="">Simple!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right_wrapper">
+    <mat-card>
+      <mat-card-header>
+        <div>Welcome to BAC! 👋</div>
+        <div class="sub_header">
+          Please sign-in to your account and start the adventure
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <mat-label class="f-w-600 m-b-8 d-block">Your Name</mat-label>
+            <input matInput placeholder="your name " />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <mat-label class="f-w-600 m-b-8 d-block">Password</mat-label>
+            <input matInput type="password" placeholder="your password" />
+          </mat-form-field>
+        </div>
+
+        <button mat-button (click)="navigate('/forgot')" class="float-end">
+          Forgot password ?
+        </button>
+        <div class="login-button">
+          <button
+            mat-flat-button
+            color="secondary"
+            class="m-t-5 full-width"
+            (click)="navigate('/user')"
+          >
+            Login
+          </button>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="m-t-12 m-b-12">
+          Dont you have an account ?
+          <button mat-button color="primary" (click)="navigate('/signup')">
+            Sign up
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

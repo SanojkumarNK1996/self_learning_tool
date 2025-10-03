@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "module": "ES2020",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@beACoder/@pages": ["src/app/@pages/index.ts"],
+      "@beACoder/@components": ["src/app/@components/index.ts"],
+      "@beACoder/@layout": ["src/app/@layout/index.ts"]
+    }
+  }
+}
