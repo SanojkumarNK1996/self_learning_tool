@@ -4,6 +4,7 @@ const courseController = require('../controllers/course.controller');
 const topicController = require("../controllers/topic.controller")
 const subTopicController = require("../controllers/subtopics.controller")
 const contentBlockController = require("../controllers/contentBlock.controller");
+const { requireAuth } = require("../middleware/authorize")
 
 //courses ------------
 router.post('/', courseController.createCourse);
@@ -12,7 +13,10 @@ router.post('/', courseController.createCourse);
 router.patch('/:courseId', courseController.updateCourse);
 
 // List all courses
-router.get('/', courseController.getAllCourses);
+router.get('/', requireAuth,courseController.getAllCourses);
+
+// get Single courses
+router.get('/:courseId', courseController.getCourseById);
 
 // Delete a course
 router.delete('/:courseId', courseController.deleteCourse);
@@ -28,7 +32,7 @@ router.post('/:courseId/topics/bulk', topicController.bulkCreateTopics);
 router.patch('/:courseId/topics/:topicId', topicController.updateTopic);
 
 //Get all topics of a course
-router.get('/:courseId/topics', topicController.getTopics);
+router.get('/:courseId/topics', requireAuth,topicController.getTopics);
 
 //Get a single topic
 router.get('/:courseId/topics/:topicId', topicController.getTopicById);
@@ -47,7 +51,7 @@ router.post('/:courseId/topics/:topicId/subtopics/bulk', subTopicController.bulk
 router.patch('/:courseId/topics/:topicId/subtopics/:subtopicId', subTopicController.updateSubtopic);
 
 //Get all subTopics of a topic
-router.get('/:courseId/topics/:topicId/subtopics', subTopicController.getSubtopics);
+router.get('/:courseId/topics/:topicId/subtopics', requireAuth,subTopicController.getSubtopics);
 
 //Get a single subTopic by topicId
 router.get('/:courseId/topics/:topicId/subtopics/:subtopicId', subTopicController.getSubtopicById);

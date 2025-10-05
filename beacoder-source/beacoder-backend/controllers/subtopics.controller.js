@@ -48,12 +48,32 @@ const bulkCreateSubtopics = async (req, res) => {
 
 const getSubtopics = async (req, res) => {
   try {
-    const { topicId } = req.params;
-    const subtopics = await Subtopics.findAll({
-      where: { topicId },
-      order: [['displayOrder', 'ASC']],
+    const { courseId } = req.params;
+
+    const topicsData = await CourseTopics.findAll({
+      where: { courseId },
+      include: [
+        {
+          model: Subtopics,
+        },
+      ],
+      order: [
+        ['displayOrder', 'ASC'],                 // order topics
+        [Subtopics, 'displayOrder', 'ASC'],      // order subtopics if you have displayOrder
+      ],
     });
-    res.json(subtopics);
+
+    const transformed = topicsData.map(topic => ({
+      id:topic.id,
+      topic: topic.title,
+      subtopics: topic.Subtopics, // include subtopics array as-is
+    }));
+
+    res.status(200).json({
+      message: "All topics of course fetched Successfully",
+      data: transformed
+
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

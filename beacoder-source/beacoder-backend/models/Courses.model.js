@@ -19,6 +19,9 @@ const Courses = db.pgConn.define('Courses', {
   description: {
     type: DataTypes.TEXT,
   },
+  imgUrl: {
+    type: DataTypes.STRING,
+  },
   difficultyLevel: {
     type: DataTypes.ENUM('easy', 'medium', 'hard'),
     defaultValue: 'easy',

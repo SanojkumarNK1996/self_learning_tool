@@ -3,7 +3,7 @@ const Courses = require('../models/Courses.model');
 // Create a new course
 const createCourse = async (req, res) => {
     try {
-        const { courseCode, courseName, description, difficultyLevel, estimatedHours } = req.body;
+        const { courseCode, courseName, description, difficultyLevel, estimatedHours, imageUrl } = req.body;
 
         const newCourse = await Courses.create({
             courseCode,
@@ -11,6 +11,7 @@ const createCourse = async (req, res) => {
             description,
             difficultyLevel,
             estimatedHours,
+            imageUrl
         });
 
         res.status(201).json({ success: true, data: newCourse });
@@ -27,6 +28,7 @@ const updateCourse = async (req, res) => {
         const [updated] = await Courses.update(req.body, {
             where: { id: courseId },
         });
+        console.log("req.body", req.body)
 
         if (!updated) {
             return res.status(404).json({ success: false, message: 'Course not found' });
@@ -70,9 +72,25 @@ const getAllCourses = async (req, res) => {
     }
 };
 
+const getCourseById = async (req, res) => {
+    try {
+        const { courseId } = req.params;
+        const course = await Courses.findByPk(courseId);
+
+        if (!course) {
+            return res.status(404).json({ success: false, message: 'Course not found' });
+        }
+
+        res.status(200).json({ success: true, data: course });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
 module.exports = {
     getAllCourses,
     deleteCourse,
     updateCourse,
-    createCourse
+    createCourse,
+    getCourseById
 }
