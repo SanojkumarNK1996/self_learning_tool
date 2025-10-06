@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken');
-const { PASSWORD_HASH_SALT,JWT_SECRET } = require("../config/constants");
+const { PASSWORD_HASH_SALT, JWT_SECRET } = require("../config/constants");
 const Users = require("../models/Users.model")
 
 
@@ -12,6 +12,11 @@ const SignUp = async (req, res) => {
         const existingUser = await Users.findOne({ where: { email } });
         if (existingUser) {
             return res.status(400).json({ msg: 'Email already registered' });
+        }
+
+          const existingPhone = await Users.findOne({ where: { phone } });
+        if (existingPhone) {
+            return res.status(400).json({ msg: 'Phone Number already registered' });
         }
 
         const hashedPassword = await bcrypt.hash(password, PASSWORD_HASH_SALT);
@@ -69,7 +74,7 @@ const Login = async (req, res) => {
             user: { id: user.id, name: user.name, email: user.email, role: user.role },
         });
     } catch (err) {
-        console.log("err",err)
+        console.log("err", err)
         return res.status(500).json({ error: err.message });
     }
 }
