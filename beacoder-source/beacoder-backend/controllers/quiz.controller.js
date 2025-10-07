@@ -6,7 +6,7 @@ const Users = require("../models/Users.model")
 const createTopicQuiz = async (req, res) => {
     try {
         const { courseId, topicId } = req.params;
-        const { tags, questionData } = req.body;
+        const { tags, questionData, title, displayOrder } = req.body;
 
 
         const topic = await CourseTopics.findOne({ where: { id: topicId, courseId } });
@@ -19,6 +19,8 @@ const createTopicQuiz = async (req, res) => {
             topicId,
             tags,
             questionData,
+            title,
+            displayOrder
         });
 
         res.status(201).json({ message: "Topic-level quiz created successfully", quiz });
@@ -74,7 +76,7 @@ const getQuizzesByTopic = async (req, res) => {
 
         const quizzes = await Quiz.findAll({
             where: { courseId, topicId },
-            order: [['createdAt', 'DESC']]
+          order: [['displayOrder', 'ASC']],
         });
         res.status(200).json({ message: "Quiz fetched successfully", quizzes });
 

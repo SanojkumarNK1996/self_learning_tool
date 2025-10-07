@@ -7,6 +7,13 @@ const Quiz = db.pgConn.define('Quiz', {
     primaryKey: true,
     autoIncrement: true,
   },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  displayOrder: {
+    type: DataTypes.INTEGER,
+  },
   tags: {
     type: DataTypes.STRING,
   },
